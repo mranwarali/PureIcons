@@ -216,7 +216,7 @@ function App() {
             <h3 className="text-2xl font-bold">PureIcons</h3>
           </div>
           <p className="text-gray-400 mb-6">
-            Free and open-source icons for everyone. Built with ❤️ by <a href="https://www.linkedin.com/in/mranwarali" className='font-medium text-green-500'>Anwar Ali</a> for the community.
+            Free and open-source icons for everyone. Built with ❤️ by <a href="" className='font-medium text-green-500'>Anwar Ali</a> for the community.
           </p>
           <div className="flex justify-center space-x-6">
             <a href="https://github.com/lucide-icons/lucide" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">GitHub</a>
