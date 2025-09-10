@@ -176,8 +176,8 @@ function App() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Browse Our Icon Collection</h2>
-            <p className="text-gray-600 dark:text-gray-400 text-lg">
-              {iconData.length} carefully crafted icons ready to use in your projects
+            <p className="text-gray-600 dark:text-gray-400 text-lg max-w-4xl mx-auto mb-6">
+              {iconData.length} carefully crafted icons ready to use in your projects. Our icon library is designed to provide developers and designers with a versatile set of SVG icons that are easy to customize and integrate into any web or mobile application. Whether you need icons for UI elements, navigation, or branding, PureIcons offers a comprehensive solution that enhances your project's visual appeal and usability.
             </p>
           </motion.div>
 
@@ -204,6 +204,91 @@ function App() {
           />
         </div>
       </main>
+
+      {/* Why Choose PureIcons Section */}
+      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Why Choose PureIcons?</h2>
+            <p className="text-gray-600 dark:text-gray-400 text-lg max-w-3xl mx-auto">
+              PureIcons stands out as the premier choice for developers and designers seeking high-quality, versatile icon solutions. Our commitment to excellence and user experience sets us apart in the crowded icon market.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">100% Free & Open Source</h3>
+              <p className="text-gray-600 dark:text-gray-400">
+                All our icons are completely free to use in any project, personal or commercial. No hidden fees, no attribution required, and fully open-source under the MIT license.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Lightning Fast Performance</h3>
+              <p className="text-gray-600 dark:text-gray-400">
+                Optimized SVG icons that load instantly and scale perfectly at any size. Our icons are designed for performance, ensuring your applications remain fast and responsive.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="text-center"
+            >
+              <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Developer Friendly</h3>
+              <p className="text-gray-600 dark:text-gray-400">
+                Built with developers in mind, our icons integrate seamlessly with popular frameworks and libraries. Easy to customize, style, and implement in your projects.
+              </p>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="mt-12 text-center"
+          >
+            <p className="text-gray-600 dark:text-gray-400 text-lg">
+              Join thousands of developers and designers who trust PureIcons for their icon needs. Start building better user interfaces today with our comprehensive icon collection.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
       <Documentation />
 

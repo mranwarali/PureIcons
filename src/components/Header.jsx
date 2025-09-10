@@ -13,19 +13,19 @@ const Header = ({ onDocsClick, theme, toggleTheme }) => {
         <div className="flex items-center justify-between">
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-2 cursor-pointer"
           >
             <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">PI</span>
             </div>
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               PureIcons
-            </h1>
+            </h2>
           </motion.div>
           
           <div className="flex items-center space-x-4">
             <motion.a
-              href="https://github.com/lucide-icons/lucide" // Added GitHub link
+              href="https://github.com/lucide-icons/lucide" 
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}

@@ -43,10 +43,9 @@ const Hero = ({ onBrowseIcons, onDownloadPackage, isDownloading }) => { // Accep
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed"
           >
-            Discover our collection of 100+ carefully crafted icons. Free to use,
-            easy to integrate, and designed to make your projects shine.
+            Discover our comprehensive collection of 100+ carefully crafted SVG icons designed specifically for developers and designers. These icons are completely free to use, open-source, and optimized for web projects. Easy to integrate with popular frameworks like React, Vue, and Angular, and perfect for enhancing your user interfaces with beautiful, consistent iconography that makes your projects stand out.
           </motion.p>
 
           <motion.div

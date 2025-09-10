@@ -478,7 +478,7 @@ function NotificationIcon() {
   <!-- ... other head elements ... -->
 </head>
 <body>
-  <h1>My Awesome Icons</h1>
+  <h2>My Awesome Icons</h2>
 
   <!-- Use icons with data-lucide attribute -->
   <i data-lucide="home"></i>
