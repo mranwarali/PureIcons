@@ -56,7 +56,7 @@ const IconModal = ({ icon, isOpen, onClose }) => {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed inset-4 md:inset-8 bg-white dark:bg-gray-800 rounded-2xl z-50 overflow-hidden shadow-2xl"
+            className="fixed inset-2 md:inset-8 bg-white dark:bg-gray-800 rounded-2xl z-50 overflow-hidden shadow-2xl"
           >
             <div className="flex flex-col h-full">
               {/* Header */}

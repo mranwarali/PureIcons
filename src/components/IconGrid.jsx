@@ -6,7 +6,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'; // Import arrow icons
 
 const IconGrid = ({ icons, onIconClick, isSearching, currentPage, totalPages, onNextPage, onPrevPage }) => {
   return (
-    <div className="container mx-auto px-4 relative min-h-[300px]">
+    <div className="container max-w-full sm:max-w-4xl md:max-w-6xl lg:max-w-7xl px-4 relative min-h-[300px] mx-auto">
       <AnimatePresence mode="wait">
         {isSearching ? (
           <motion.div

@@ -9,7 +9,7 @@ const Header = ({ onDocsClick, theme, toggleTheme }) => {
       animate={{ y: 0, opacity: 1 }}
       className="sticky top-0 z-50 glass border-b border-white/10"
     >
-      <div className="container mx-auto px-4 py-4">
+      <div className="container max-w-full sm:max-w-4xl md:max-w-6xl lg:max-w-7xl px-4 py-4 mx-auto">
         <div className="flex items-center justify-between">
           <motion.div
             whileHover={{ scale: 1.05 }}

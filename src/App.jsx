@@ -164,12 +164,12 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <Header onDocsClick={handleDocsClick} theme={theme} toggleTheme={toggleTheme} />
       <Hero onBrowseIcons={handleBrowseIcons} onDownloadPackage={handleDownloadPackage} isDownloading={isDownloading} />
 
-      <main className="py-16" ref={iconGridRef}>
-        <div className="container mx-auto px-4">
+      <main className="py-16 flex-grow" ref={iconGridRef}>
+        <div className="container max-w-full sm:max-w-4xl md:max-w-6xl lg:max-w-7xl px-4 mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
