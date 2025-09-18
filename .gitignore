@@ -1,5 +1,4 @@
-# Dependencies
-/node_modules
-
-# Vite build output
-/dist
+node_modules/
+dist/
+*.log
+.env
