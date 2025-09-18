@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Search, X } from 'lucide-react';
-import Spinner from './Spinner'; // Import Spinner
+import { Search as FeatherSearch, X as FeatherX } from 'feather-icons-react'; // Import Feather icons
+import Spinner from './Spinner';
 
-const SearchBar = ({ searchTerm, onSearchChange, totalResults, isSearching }) => { // Accept isSearching
+const SearchBar = ({ searchTerm, onSearchChange, totalResults, isSearching }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -22,10 +22,10 @@ const SearchBar = ({ searchTerm, onSearchChange, totalResults, isSearching }) =>
           }}
           className="relative"
         >
-          {isSearching ? ( // Show spinner when searching
+          {isSearching ? (
             <Spinner size={20} className="absolute left-4 top-1/2 transform -translate-y-1/2 text-blue-500" />
           ) : (
-            <Search
+            <FeatherSearch
               size={20}
               className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500"
             />
@@ -48,12 +48,12 @@ const SearchBar = ({ searchTerm, onSearchChange, totalResults, isSearching }) =>
               onClick={() => onSearchChange('')}
               className="absolute right-4 top-1/2 transform -translate-y-1/2 p-1 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
             >
-              <X size={18} />
+              <FeatherX size={18} />
             </motion.button>
           )}
         </motion.div>
 
-        {searchTerm && !isSearching && ( // Only show results count when not searching
+        {searchTerm && !isSearching && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}

@@ -1,24 +1,40 @@
 export const generateSVGString = (svgData, size = 24, color = 'currentColor', strokeWidth = 2) => {
-  // Since we don't have access to Lucide core, we'll create a simple placeholder
+  if (!svgData || svgData.length === 0) {
+    console.error("generateSVGString: No SVG data provided. Returning placeholder.");
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="10" fill="red">No SVG Data</text>
+    </svg>`;
+  }
+
+  // Construct the full SVG string by wrapping the svgData with the necessary SVG tag and attributes
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="${strokeWidth}" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+    ${svgData}
   </svg>`;
 };
 
 export const generateReactEmbed = (pascalName) => {
-  return `import { ${pascalName} } from 'lucide-react';\n\n<${pascalName} size={24} />`;
+  // Now importing Feather icons directly from feather-icons-react
+  return `import { ${pascalName} as Feather${pascalName} } from 'feather-icons-react';
+
+<Feather${pascalName} size={24} />`;
 };
 
-export const generateCDNLink = (iconId, format = 'svg') => {
-  // Since we don't have access to Lucide core, we'll return a placeholder
-  return `<!-- No direct CDN for individual Lucide SVGs. Consider embedding directly or using a React component. -->`;
+export const generateCDNLink = (iconId, size = 24, color = 'currentColor', strokeWidth = 2) => {
+  // Feather icons have a CDN, but for simplicity and consistency with the project's current structure,
+  // we'll provide a generic placeholder or suggest direct SVG embedding.
+  // If you were to use a Feather CDN, it might look like:
+  // return `https://cdn.jsdelivr.net/npm/feather-icons/dist/icons/${iconId}.svg`;
+  return `<!-- For Feather icons, you can link to a CDN if available, or embed SVG directly. -->
+<!-- Example (hypothetical Feather CDN): -->
+<!-- <img src="https://cdn.jsdelivr.net/npm/feather-icons/dist/icons/${iconId}.svg" alt="${iconId}" width="${size}" height="${size}" style="color: ${color}; stroke-width: ${strokeWidth}px;" /> -->
+<!-- For now, consider direct SVG or React component usage. -->`;
 };
 
 export const downloadIcon = (iconId, iconName, format = 'svg', size = 24, svgData) => {
   let content, mimeType, filename;
 
   if (format === 'svg') {
-    content = generateSVGString(svgData, size);
+    content = generateSVGString(svgData, size); // Use the correctly generated SVG string
     mimeType = 'image/svg+xml';
     filename = `${iconId}.svg`;
   } else if (format === 'png') {
@@ -35,10 +51,38 @@ export const downloadIcon = (iconId, iconName, format = 'svg', size = 24, svgDat
   URL.revokeObjectURL(url);
 };
 
-export const copyToClipboard = (text) => {
-  navigator.clipboard.writeText(text).then(() => {
-    console.log('Copied to clipboard');
-  }).catch(err => {
-    console.error('Failed to copy: ', err);
-  });
+export const copyToClipboard = async (text) => {
+  console.log('copyToClipboard called with text:', text);
+
+  // Attempt to use the modern Clipboard API first
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    try {
+      await navigator.clipboard.writeText(text);
+      console.log('Copied to clipboard successfully using Clipboard API!');
+      return; // Success, exit early
+    } catch (err) {
+      console.error('Failed to copy using Clipboard API:', err);
+      // Fallback to execCommand if modern API fails (e.g., NotAllowedError)
+    }
+  } else {
+    console.warn('Clipboard API not available. Falling back to document.execCommand.');
+  }
+
+  // Fallback using document.execCommand
+  try {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed'; // Prevent scrolling to bottom of page in iOS.
+    textarea.style.opacity = '0'; // Hide the textarea
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    console.log('Copied to clipboard successfully using document.execCommand!');
+  } catch (err) {
+    console.error('Failed to copy using document.execCommand:', err);
+    alert('Failed to copy to clipboard. Your browser might be blocking clipboard access. Please try manually copying the code.');
+    throw err; // Re-throw to propagate the error
+  }
 };

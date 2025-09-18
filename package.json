@@ -11,10 +11,13 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "lucide-react": "^0.303.0",
     "framer-motion": "^10.16.4",
     "jszip": "^3.10.1",
-    "file-saver": "^2.0.5"
+    "file-saver": "^2.0.5",
+    "react-router-dom": "^6.21.1",
+    "feather-icons-react": "^0.6.2",
+    "feather-icons": "^4.29.1",
+    "prop-types": "^15.8.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",

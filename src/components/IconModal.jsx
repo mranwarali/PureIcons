@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Copy, Download, Code, ExternalLink, Check } from 'lucide-react';
+import { X as FeatherX, Copy as FeatherCopy, Download as FeatherDownload, Code as FeatherCode, ExternalLink as FeatherExternalLink, Check as FeatherCheck } from 'feather-icons-react'; // Import Feather icons
 import { generateSVGString, generateReactEmbed, generateCDNLink, downloadIcon, copyToClipboard } from '../utils/iconUtils';
 
 const IconModal = ({ icon, isOpen, onClose }) => {
@@ -11,30 +11,43 @@ const IconModal = ({ icon, isOpen, onClose }) => {
 
   if (!icon) return null;
 
+  console.log("IconModal opened for icon:", icon.id);
+  console.log("IconModal received svgData:", icon.svgData);
+
   const IconComponent = icon.component;
   const sizes = [16, 20, 24, 32, 48, 64];
   const formats = ['svg', 'png'];
   const tabs = [
-    { id: 'html', label: 'HTML', icon: Code },
-    { id: 'react', label: 'React', icon: Code },
-    { id: 'cdn', label: 'CDN', icon: ExternalLink }
+    { id: 'html', label: 'HTML', icon: FeatherCode },
+    { id: 'react', label: 'React', icon: FeatherCode },
+    { id: 'cdn', label: 'CDN', icon: FeatherExternalLink }
   ];
 
-  const handleCopy = (text, item) => {
-    copyToClipboard(text);
-    setCopiedItem(item);
-    setTimeout(() => setCopiedItem(null), 2000);
+  const handleCopy = (item) => {
+    const codeToCopy = getCodeExample();
+    console.log('Attempting to copy code for tab:', item, 'Code:', codeToCopy);
+    if (!codeToCopy) {
+      console.warn('No code to copy for active tab:', activeTab);
+      return;
+    }
+    copyToClipboard(codeToCopy)
+      .then(() => {
+        setCopiedItem(item);
+        setTimeout(() => setCopiedItem(null), 2000);
+      })
+      .catch(err => {
+        console.error('Error during copy operation in IconModal:', err);
+      });
   };
 
   const getCodeExample = () => {
     switch (activeTab) {
       case 'html':
-        // For HTML embed, we now provide the direct SVG string
-        return generateSVGString(icon.svgData, selectedSize); // Pass svgData
+        return generateSVGString(icon.svgData, selectedSize);
       case 'react':
-        return generateReactEmbed(icon.pascalName); // Use icon.pascalName
+        return generateReactEmbed(icon.pascalName);
       case 'cdn':
-        return generateCDNLink(icon.id, selectedFormat);
+        return generateCDNLink(icon.id);
       default:
         return '';
     }
@@ -56,7 +69,7 @@ const IconModal = ({ icon, isOpen, onClose }) => {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed inset-2 md:inset-8 bg-white dark:bg-gray-800 rounded-2xl z-50 overflow-hidden shadow-2xl"
+            className="fixed inset-4 md:inset-8 bg-white dark:bg-gray-800 rounded-2xl z-50 overflow-hidden shadow-2xl"
           >
             <div className="flex flex-col h-full">
               {/* Header */}
@@ -77,7 +90,7 @@ const IconModal = ({ icon, isOpen, onClose }) => {
                   onClick={onClose}
                   className="p-2 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 transition-colors"
                 >
-                  <X size={24} />
+                  <FeatherX size={24} />
                 </motion.button>
               </div>
 
@@ -129,10 +142,10 @@ const IconModal = ({ icon, isOpen, onClose }) => {
                           key={format}
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          onClick={() => downloadIcon(icon.id, icon.name, format, selectedSize, icon.svgData)} // Pass icon.svgData
+                          onClick={() => downloadIcon(icon.id, icon.name, format, selectedSize, icon.svgData)}
                           className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all"
                         >
-                          <Download size={16} />
+                          <FeatherDownload size={16} />
                           <span>{format.toUpperCase()}</span>
                         </motion.button>
                       ))}
@@ -141,7 +154,7 @@ const IconModal = ({ icon, isOpen, onClose }) => {
                 </div>
 
                 {/* Code Section */}
-                <div className="space-y-6">
+                <div className="space-y-6 px-6 pb-6">
                   <div>
                     <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Integration Code</h3>
                     
@@ -170,24 +183,24 @@ const IconModal = ({ icon, isOpen, onClose }) => {
 
                     {/* Code Display */}
                     <div className="relative">
-                      <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg text-sm overflow-x-auto">
+                      <pre className="bg-gray-900 text-gray-100 px-6 py-4 rounded-lg text-sm overflow-x-auto">
                         <code>{getCodeExample()}</code>
                       </pre>
                       
                       <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        onClick={() => handleCopy(getCodeExample(), activeTab)}
+                        onClick={() => handleCopy(activeTab)}
                         className="absolute top-2 right-2 flex items-center space-x-1 px-3 py-1 bg-white/10 backdrop-blur text-white rounded-md hover:bg-white/20 transition-all"
                       >
                         {copiedItem === activeTab ? (
                           <>
-                            <Check size={14} />
+                            <FeatherCheck size={14} />
                             <span className="text-xs">Copied!</span>
                           </>
                         ) : (
                           <>
-                            <Copy size={14} />
+                            <FeatherCopy size={14} />
                             <span className="text-xs">Copy</span>
                           </>
                         )}
@@ -196,7 +209,7 @@ const IconModal = ({ icon, isOpen, onClose }) => {
                   </div>
 
                   {/* Icon Info */}
-                  <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4">
+                  <div className="bg-gray-50 dark:bg-gray-700 rounded-xl px-6 py-4">
                     <h4 className="font-semibold mb-2 text-gray-900 dark:text-white">Icon Details</h4>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">

@@ -2,11 +2,11 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import IconCard from './IconCard';
 import Spinner from './Spinner';
-import { ArrowLeft, ArrowRight } from 'lucide-react'; // Import arrow icons
+import { ArrowLeft as FeatherArrowLeft, ArrowRight as FeatherArrowRight } from 'feather-icons-react'; // Import Feather icons
 
 const IconGrid = ({ icons, onIconClick, isSearching, currentPage, totalPages, onNextPage, onPrevPage }) => {
   return (
-    <div className="container max-w-full sm:max-w-4xl md:max-w-6xl lg:max-w-7xl px-4 relative min-h-[300px] mx-auto">
+    <div className="container mx-auto px-4 relative min-h-[300px]">
       <AnimatePresence mode="wait">
         {isSearching ? (
           <motion.div
@@ -22,7 +22,8 @@ const IconGrid = ({ icons, onIconClick, isSearching, currentPage, totalPages, on
           <motion.div
             key="icons"
             layout
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"
+            // Updated grid-cols to make cards narrower and gap to 4
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4"
           >
             <AnimatePresence>
               {icons.map((icon, index) => (
@@ -34,10 +35,13 @@ const IconGrid = ({ icons, onIconClick, isSearching, currentPage, totalPages, on
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ delay: index * 0.02 }}
                 >
-                  <IconCard icon={icon} onIconClick={onIconClick} />
+                  {icon.placeholder ? (
+                    <div className="w-full h-24" aria-hidden="true" />
+                  ) : (
+                    <IconCard icon={icon} onIconClick={onIconClick} />
+                  )}
                 </motion.div>
-              ))}
-            </AnimatePresence>
+              ))}</AnimatePresence>
           </motion.div>
         )}
       </AnimatePresence>
@@ -48,7 +52,7 @@ const IconGrid = ({ icons, onIconClick, isSearching, currentPage, totalPages, on
           animate={{ opacity: 1 }}
           className="text-center py-20"
         >
-          <div className="text-6xl mb-4">🔍</div>
+          <div className="text-6xl mb-4">💡</div> {/* Changed emoji to something more generic */}
           <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-2">No icons found</h3>
           <p className="text-gray-600 dark:text-gray-400">Try adjusting your search or category filter</p>
         </motion.div>
@@ -72,7 +76,7 @@ const IconGrid = ({ icons, onIconClick, isSearching, currentPage, totalPages, on
                 : 'bg-blue-600 text-white shadow-md hover:bg-blue-700'
             }`}
           >
-            <ArrowLeft size={20} />
+            <FeatherArrowLeft size={20} />
             <span>Previous</span>
           </motion.button>
 
@@ -92,7 +96,7 @@ const IconGrid = ({ icons, onIconClick, isSearching, currentPage, totalPages, on
             }`}
           >
             <span>Next</span>
-            <ArrowRight size={20} />
+            <FeatherArrowRight size={20} />
           </motion.button>
         </motion.div>
       )}
