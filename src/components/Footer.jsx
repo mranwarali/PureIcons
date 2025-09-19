@@ -93,7 +93,7 @@ const Footer = () => {
               </li>
               <li>
                 <button 
-                  onClick={() => handleExternalLink('https://api.pureicons.com')} // Placeholder URL
+                  onClick={() => handleExternalLink('https://github.com/feathericons/feather')} // Placeholder URL
                   className="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors duration-200 text-left"
                 >
                   API Reference
@@ -110,7 +110,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <button 
-                  onClick={() => handleExternalLink('https://www.figma.com/community/plugin/123456789/PureIcons')} // Placeholder URL
+                  onClick={() => handleExternalLink('https://www.figma.com/community/plugin/744047966581015514/feather-icons')} // Placeholder URL
                   className="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors duration-200 text-left"
                 >
                   Figma Plugin
