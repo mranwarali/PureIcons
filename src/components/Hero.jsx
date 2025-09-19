@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 const Hero = () => {
   const handleWatchDemo = () => {
     // Replace with your actual demo video URL
-    window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank'); 
+    window.open('https://youtube.com/shorts/h0LS6l2VqnU?si=CwD0U61FZVxuRX13', '_blank'); 
   };
 
   return (
