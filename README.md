@@ -1,1 +1,0 @@
-PureIcons offers over 1,000 high-quality vector (SVG) icons for seamless integration into your digital and non-digital projects. Designed for simplicity, our open-source library empowers developers and designers with consistent, user-friendly icons and official packages to elevate your projects effortlessly.

@@ -1,103 +1,264 @@
-import * as FeatherReactIcons from 'feather-icons-react'; // Import all Feather React components
-import feather from 'feather-icons'; // Rely on Vite to pick up the ES module version from package.json
+import * as FeatherIcons from 'feather-icons-react'; // Import all as a namespace
 
-export const iconCategories = [];
-export const iconData = [];
+export const iconData = [
+  // UI Icons
+  { id: 1, name: 'home', component: FeatherIcons.Home, category: 'ui', tags: ['house', 'main', 'start'] },
+  { id: 2, name: 'user', component: FeatherIcons.User, category: 'ui', tags: ['person', 'profile', 'account'] },
+  { id: 3, name: 'settings', component: FeatherIcons.Settings, category: 'ui', tags: ['gear', 'preferences', 'config'] },
+  { id: 4, name: 'search', component: FeatherIcons.Search, category: 'ui', tags: ['find', 'look', 'magnify'] },
+  { id: 5, name: 'menu', component: FeatherIcons.Menu, category: 'ui', tags: ['hamburger', 'navigation', 'bars'] },
+  { id: 6, name: 'x', component: FeatherIcons.X, category: 'ui', tags: ['close', 'cancel', 'remove'] },
+  { id: 7, name: 'plus', component: FeatherIcons.Plus, category: 'ui', tags: ['add', 'create', 'new'] },
+  { id: 8, name: 'minus', component: FeatherIcons.Minus, category: 'ui', tags: ['subtract', 'remove', 'delete'] },
+  { id: 9, name: 'check', component: FeatherIcons.Check, category: 'ui', tags: ['done', 'complete', 'success'] },
+  { id: 10, name: 'edit', component: FeatherIcons.Edit, category: 'ui', tags: ['pencil', 'modify', 'change'] },
+  { id: 55, name: 'eye', component: FeatherIcons.Eye, category: 'ui', tags: ['view', 'see', 'watch'] },
+  { id: 56, name: 'eye-off', component: FeatherIcons.EyeOff, category: 'ui', tags: ['hide', 'invisible', 'secret'] },
+  { id: 57, name: 'lock', component: FeatherIcons.Lock, category: 'ui', tags: ['secure', 'private', 'protected'] },
+  { id: 58, name: 'unlock', component: FeatherIcons.Unlock, category: 'ui', tags: ['open', 'access', 'unlocked'] },
+  { id: 59, name: 'key', component: FeatherIcons.Key, category: 'ui', tags: ['password', 'access', 'security'] },
+  { id: 60, name: 'shield', component: FeatherIcons.Shield, category: 'ui', tags: ['protection', 'security', 'safe'] },
+  { id: 61, name: 'info', component: FeatherIcons.Info, category: 'ui', tags: ['information', 'help', 'about'] },
+  { id: 62, name: 'alert-circle', component: FeatherIcons.AlertCircle, category: 'ui', tags: ['warning', 'caution', 'error'] },
+  { id: 63, name: 'help-circle', component: FeatherIcons.HelpCircle, category: 'ui', tags: ['question', 'support', 'faq'] },
+  { id: 64, name: 'calendar', component: FeatherIcons.Calendar, category: 'ui', tags: ['date', 'time', 'schedule'] },
+  { id: 65, name: 'clock', component: FeatherIcons.Clock, category: 'ui', tags: ['time', 'hour', 'minute'] },
+  { id: 66, name: 'map-pin', component: FeatherIcons.MapPin, category: 'ui', tags: ['location', 'place', 'marker'] },
+  { id: 67, name: 'globe', component: FeatherIcons.Globe, category: 'ui', tags: ['world', 'internet', 'web'] },
+  { id: 68, name: 'wifi', component: FeatherIcons.Wifi, category: 'ui', tags: ['internet', 'connection', 'network'] },
+  { id: 69, name: 'battery', component: FeatherIcons.Battery, category: 'ui', tags: ['power', 'charge', 'energy'] },
+  { id: 70, name: 'zap', component: FeatherIcons.Zap, category: 'ui', tags: ['lightning', 'power', 'energy'] },
+  { id: 71, name: 'activity', component: FeatherIcons.Activity, category: 'ui', tags: ['pulse', 'health', 'action'] },
+  { id: 72, name: 'alert-octagon', component: FeatherIcons.AlertOctagon, category: 'ui', tags: ['warning', 'danger', 'stop'] },
+  { id: 73, name: 'anchor', component: FeatherIcons.Anchor, category: 'ui', tags: ['ship', 'boat', 'link'] },
+  { id: 74, name: 'aperture', component: FeatherIcons.Aperture, category: 'ui', tags: ['camera', 'photo', 'lens'] },
+  { id: 75, name: 'archive', component: FeatherIcons.Archive, category: 'ui', tags: ['box', 'storage', 'backup'] },
+  { id: 76, name: 'at-sign', component: FeatherIcons.AtSign, category: 'ui', tags: ['email', 'mention', 'contact'] },
+  { id: 77, name: 'award', component: FeatherIcons.Award, category: 'ui', tags: ['badge', 'prize', 'achievement'] },
+  { id: 78, name: 'bar-chart', component: FeatherIcons.BarChart, category: 'ui', tags: ['graph', 'stats', 'analytics'] },
+  { id: 79, name: 'battery-charging', component: FeatherIcons.BatteryCharging, category: 'ui', tags: ['power', 'charge', 'energy'] },
+  { id: 80, name: 'bluetooth', component: FeatherIcons.Bluetooth, category: 'ui', tags: ['wireless', 'connect', 'device'] },
+  { id: 81, name: 'briefcase', component: FeatherIcons.Briefcase, category: 'ui', tags: ['bag', 'work', 'business'] },
+  { id: 82, name: 'calendar-check', component: FeatherIcons.CalendarCheck, category: 'ui', tags: ['date', 'event', 'schedule'] },
+  { id: 83, name: 'cast', component: FeatherIcons.Cast, category: 'ui', tags: ['screen', 'stream', 'display'] },
+  { id: 84, name: 'clipboard', component: FeatherIcons.Clipboard, category: 'ui', tags: ['paste', 'copy', 'document'] },
+  { id: 85, name: 'code', component: FeatherIcons.Code, category: 'ui', tags: ['develop', 'program', 'brackets'] },
+  { id: 86, name: 'compass', component: FeatherIcons.Compass, category: 'ui', tags: ['direction', 'navigate', 'location'] },
+  { id: 87, name: 'cpu', component: FeatherIcons.Cpu, category: 'ui', tags: ['processor', 'chip', 'computer'] },
+  { id: 88, name: 'crop', component: FeatherIcons.Crop, category: 'ui', tags: ['resize', 'image', 'cut'] },
+  { id: 89, name: 'database', component: FeatherIcons.Database, category: 'ui', tags: ['storage', 'data', 'server'] },
+  { id: 90, name: 'delete', component: FeatherIcons.Delete, category: 'ui', tags: ['remove', 'backspace', 'erase'] },
+  { id: 91, name: 'disc', component: FeatherIcons.Disc, category: 'ui', tags: ['cd', 'dvd', 'record'] },
+  { id: 92, name: 'droplet', component: FeatherIcons.Droplet, category: 'ui', tags: ['water', 'drop', 'color'] },
+  { id: 93, name: 'external-link', component: FeatherIcons.ExternalLink, category: 'ui', tags: ['share', 'new tab', 'out'] },
+  { id: 94, name: 'filter', component: FeatherIcons.Filter, category: 'ui', tags: ['sort', 'options', 'funnel'] },
+  { id: 95, name: 'flag', component: FeatherIcons.Flag, category: 'ui', tags: ['report', 'mark', 'country'] },
+  { id: 96, name: 'grid', component: FeatherIcons.Grid, category: 'ui', tags: ['layout', 'squares', 'dashboard'] },
+  { id: 97, name: 'hard-drive', component: FeatherIcons.HardDrive, category: 'ui', tags: ['storage', 'server', 'disk'] },
+  { id: 98, name: 'hash', component: FeatherIcons.Hash, category: 'ui', tags: ['hashtag', 'number', 'pound'] },
+  { id: 99, name: 'headphones', component: FeatherIcons.Headphones, category: 'ui', tags: ['audio', 'music', 'listen'] },
+  { id: 100, name: 'hexagon', component: FeatherIcons.Hexagon, category: 'ui', tags: ['shape', 'geometry', 'six'] },
+  { id: 101, name: 'layers', component: FeatherIcons.Layers, category: 'ui', tags: ['stack', 'overlap', 'design'] },
+  { id: 102, name: 'layout', component: FeatherIcons.Layout, category: 'ui', tags: ['grid', 'design', 'structure'] },
+  { id: 103, name: 'life-buoy', component: FeatherIcons.LifeBuoy, category: 'ui', tags: ['help', 'support', 'rescue'] },
+  { id: 104, name: 'link', component: FeatherIcons.Link, category: 'ui', tags: ['url', 'chain', 'attach'] },
+  { id: 105, name: 'list', component: FeatherIcons.List, category: 'ui', tags: ['bullet', 'order', 'items'] },
+  { id: 106, name: 'loader', component: FeatherIcons.Loader, category: 'ui', tags: ['loading', 'spinner', 'progress'] },
+  { id: 107, name: 'log-in', component: FeatherIcons.LogIn, category: 'ui', tags: ['signin', 'enter', 'arrow'] },
+  { id: 108, name: 'log-out', component: FeatherIcons.LogOut, category: 'ui', tags: ['signout', 'exit', 'arrow'] },
+  { id: 109, name: 'maximize', component: FeatherIcons.Maximize, category: 'ui', tags: ['fullscreen', 'expand', 'grow'] },
+  { id: 110, name: 'meh', component: FeatherIcons.Meh, category: 'ui', tags: ['neutral', 'face', 'emotion'] },
+  { id: 111, name: 'minimize', component: FeatherIcons.Minimize, category: 'ui', tags: ['shrink', 'collapse', 'small'] },
+  { id: 112, name: 'more-horizontal', component: FeatherIcons.MoreHorizontal, category: 'ui', tags: ['options', 'ellipsis', 'dots'] },
+  { id: 113, name: 'more-vertical', component: FeatherIcons.MoreVertical, category: 'ui', tags: ['options', 'ellipsis', 'dots'] },
+  { id: 114, name: 'mouse-pointer', component: FeatherIcons.MousePointer, category: 'ui', tags: ['cursor', 'select', 'click'] },
+  { id: 115, name: 'move', component: FeatherIcons.Move, category: 'ui', tags: ['drag', 'arrows', 'relocate'] },
+  { id: 116, name: 'octagon', component: FeatherIcons.Octagon, category: 'ui', tags: ['shape', 'stop', 'eight'] },
+  { id: 117, name: 'package', component: FeatherIcons.Package, category: 'ui', tags: ['box', 'delivery', 'bundle'] },
+  { id: 118, name: 'paperclip', component: FeatherIcons.Paperclip, category: 'ui', tags: ['attach', 'file', 'clip'] },
+  { id: 119, name: 'pen-tool', component: FeatherIcons.PenTool, category: 'ui', tags: ['draw', 'vector', 'design'] },
+  { id: 120, name: 'percent', component: FeatherIcons.Percent, category: 'ui', tags: ['discount', 'rate', 'percentage'] },
+  { id: 121, name: 'pie-chart', component: FeatherIcons.PieChart, category: 'ui', tags: ['graph', 'stats', 'data'] },
+  { id: 122, name: 'plus-circle', component: FeatherIcons.PlusCircle, category: 'ui', tags: ['add', 'new', 'create'] },
+  { id: 123, name: 'power', component: FeatherIcons.Power, category: 'ui', tags: ['on', 'off', 'switch'] },
+  { id: 124, name: 'printer', component: FeatherIcons.Printer, category: 'ui', tags: ['print', 'document', 'output'] },
+  { id: 125, name: 'radio', component: FeatherIcons.Radio, category: 'ui', tags: ['broadcast', 'frequency', 'music'] },
+  { id: 126, name: 'refresh-ccw', component: FeatherIcons.RefreshCcw, category: 'ui', tags: ['reload', 'sync', 'update'] },
+  { id: 127, name: 'repeat', component: FeatherIcons.Repeat, category: 'ui', tags: ['loop', 'again', 'redo'] },
+  { id: 128, name: 'rewind', component: FeatherIcons.Rewind, category: 'ui', tags: ['back', 'media', 'previous'] },
+  { id: 129, name: 'rotate-ccw', component: FeatherIcons.RotateCcw, category: 'ui', tags: ['undo', 'turn', 'circle'] },
+  { id: 130, name: 'rss', component: FeatherIcons.Rss, category: 'ui', tags: ['feed', 'subscribe', 'blog'] },
+  { id: 131, name: 'save', component: FeatherIcons.Save, category: 'ui', tags: ['disk', 'floppy', 'store'] },
+  { id: 132, name: 'scissors', component: FeatherIcons.Scissors, category: 'ui', tags: ['cut', 'trim', 'tool'] },
+  { id: 133, name: 'server', component: FeatherIcons.Server, category: 'ui', tags: ['database', 'cloud', 'hosting'] },
+  { id: 134, name: 'share-2', component: FeatherIcons.Share2, category: 'ui', tags: ['network', 'connect', 'social'] },
+  { id: 135, name: 'shield-off', component: FeatherIcons.ShieldOff, category: 'ui', tags: ['unprotected', 'insecure', 'vulnerable'] },
+  { id: 136, name: 'shopping-bag', component: FeatherIcons.ShoppingBag, category: 'ui', tags: ['cart', 'ecommerce', 'store'] },
+  { id: 137, name: 'shuffle', component: FeatherIcons.Shuffle, category: 'ui', tags: ['random', 'mix', 'reorder'] },
+  { id: 138, name: 'sidebar', component: FeatherIcons.Sidebar, category: 'ui', tags: ['panel', 'layout', 'menu'] },
+  { id: 139, name: 'sliders', component: FeatherIcons.Sliders, category: 'ui', tags: ['controls', 'adjust', 'settings'] },
+  { id: 140, name: 'speaker', component: FeatherIcons.Speaker, category: 'ui', tags: ['audio', 'sound', 'volume'] },
+  { id: 141, name: 'square', component: FeatherIcons.Square, category: 'ui', tags: ['shape', 'box', 'geometry'] },
+  { id: 142, name: 'target', component: FeatherIcons.Target, category: 'ui', tags: ['aim', 'goal', 'focus'] },
+  { id: 143, name: 'toggle-left', component: FeatherIcons.ToggleLeft, category: 'ui', tags: ['switch', 'off', 'inactive'] },
+  { id: 144, name: 'toggle-right', component: FeatherIcons.ToggleRight, category: 'ui', tags: ['switch', 'on', 'active'] },
+  { id: 145, name: 'tool', component: FeatherIcons.Tool, category: 'ui', tags: ['wrench', 'settings', 'fix'] },
+  { id: 146, name: 'trending-down', component: FeatherIcons.TrendingDown, category: 'ui', tags: ['decrease', 'fall', 'loss'] },
+  { id: 147, name: 'trending-up', component: FeatherIcons.TrendingUp, category: 'ui', tags: ['increase', 'rise', 'gain'] },
+  { id: 148, name: 'truck', component: FeatherIcons.Truck, category: 'ui', tags: ['delivery', 'shipping', 'transport'] },
+  { id: 149, name: 'type', component: FeatherIcons.Type, category: 'ui', tags: ['text', 'font', 'typography'] },
+  { id: 150, name: 'umbrella', component: FeatherIcons.Umbrella, category: 'ui', tags: ['rain', 'weather', 'protection'] },
+  { id: 151, name: 'underline', component: FeatherIcons.Underline, category: 'ui', tags: ['text', 'format', 'emphasis'] },
+  { id: 152, name: 'upload-cloud', component: FeatherIcons.UploadCloud, category: 'ui', tags: ['backup', 'sync', 'server'] },
+  { id: 153, name: 'voicemail', component: FeatherIcons.Voicemail, category: 'ui', tags: ['message', 'phone', 'answer'] },
+  { id: 154, name: 'watch', component: FeatherIcons.Watch, category: 'ui', tags: ['time', 'clock', 'wearable'] },
+  { id: 155, name: 'wind', component: FeatherIcons.Wind, category: 'ui', tags: ['air', 'weather', 'breeze'] },
+  { id: 156, name: 'zap-off', component: FeatherIcons.ZapOff, category: 'ui', tags: ['power off', 'energy', 'disabled'] },
+  { id: 157, name: 'zoom-in', component: FeatherIcons.ZoomIn, category: 'ui', tags: ['magnify', 'enlarge', 'plus'] },
+  { id: 158, name: 'zoom-out', component: FeatherIcons.ZoomOut, category: 'ui', tags: ['magnify', 'shrink', 'minus'] },
 
-const processedCategories = new Set();
-const categoryCounts = {};
-const allIconsMap = new Map(); // Use a Map to ensure unique IDs
 
-let featherAddedCount = 0;
-
-// Get all icon names directly from feather.icons, which is the most reliable source
-const featherIconNames = Object.keys(feather.icons);
-console.log(`Found ${featherIconNames.length} raw Feather icon names from 'feather-icons'.`);
-
-for (const iconId of featherIconNames) {
-  // Convert kebab-case iconId (e.g., 'arrow-left') to PascalCase (e.g., 'ArrowLeft')
-  const pascalName = iconId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
-  
-  // Try to find the corresponding React component from feather-icons-react
-  const FeatherComponent = FeatherReactIcons[pascalName];
-
-  // Get the raw SVG data using the original iconId
-  const rawFeatherSvg = feather.icons[iconId] ? feather.icons[iconId].toSvg({ class: 'feather-icon' }) : null;
-
-  // Extract inner SVG content (paths, circles, etc.) from the raw SVG string
-  let featherSvgData = '';
-  if (rawFeatherSvg) {
-    try {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(rawFeatherSvg, 'image/svg+xml');
-      const svgElement = doc.querySelector('svg');
-      if (svgElement) {
-        featherSvgData = svgElement.innerHTML;
-      }
-    } catch (e) {
-      console.error(`Error parsing SVG for icon '${iconId}':`, e);
-    }
-  }
-
-  if (FeatherComponent && featherSvgData) {
-    // Generate a user-friendly name (e.g., "Arrow Left")
-    const name = pascalName.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1 $2').replace(/^./, str => str.toUpperCase());
-    
-    const category = 'Feather'; // Default category for Feather icons
-    const tags = [iconId, name.toLowerCase(), 'feather'];
-
-    allIconsMap.set(iconId, {
-      id: iconId,
-      name: name,
-      pascalName: pascalName, // Keep PascalCase for component import
-      category: category,
-      tags: tags,
-      component: FeatherComponent,
-      svgData: featherSvgData,
-      source: 'feather'
-    });
-    featherAddedCount++;
-  } else {
-    // Log detailed reasons for skipping
-    console.warn(`Feather Icons: Skipping icon '${iconId}'. Reason:`);
-    if (!FeatherComponent) console.warn(`  - React component '${pascalName}' not found in 'feather-icons-react'.`);
-    if (!feather.icons[iconId]) console.warn(`  - Raw Feather SVG data (feather.icons['${iconId}']) not found.`);
-    if (feather.icons[iconId] && !rawFeatherSvg) console.warn(`  - toSvg() method failed for '${iconId}'.`);
-    if (rawFeatherSvg && !featherSvgData) console.warn(`  - DOMParser failed to extract inner SVG for '${iconId}'.`);
-  }
-}
-console.log(`Successfully loaded ${featherAddedCount} Feather icons into iconData.`);
+  // Navigation Icons
+  { id: 11, name: 'arrow-left', component: FeatherIcons.ArrowLeft, category: 'navigation', tags: ['back', 'previous', 'return'] },
+  { id: 12, name: 'arrow-right', component: FeatherIcons.ArrowRight, category: 'navigation', tags: ['forward', 'next', 'continue'] },
+  { id: 13, name: 'arrow-up', component: FeatherIcons.ArrowUp, category: 'navigation', tags: ['top', 'ascend', 'rise'] },
+  { id: 14, name: 'arrow-down', component: FeatherIcons.ArrowDown, category: 'navigation', tags: ['bottom', 'descend', 'drop'] },
+  { id: 15, name: 'chevron-left', component: FeatherIcons.ChevronLeft, category: 'navigation', tags: ['left', 'previous'] },
+  { id: 16, name: 'chevron-right', component: FeatherIcons.ChevronRight, category: 'navigation', tags: ['right', 'next'] },
+  { id: 17, name: 'chevron-up', component: FeatherIcons.ChevronUp, category: 'navigation', tags: ['up', 'collapse'] },
+  { id: 18, name: 'chevron-down', component: FeatherIcons.ChevronDown, category: 'navigation', tags: ['down', 'expand'] },
+  { id: 159, name: 'navigation', component: FeatherIcons.Navigation, category: 'navigation', tags: ['compass', 'direction', 'location'] },
 
 
-// Convert map values to the final iconData array
-iconData.push(...Array.from(allIconsMap.values()));
+  // Communication Icons
+  { id: 19, name: 'mail', component: FeatherIcons.Mail, category: 'communication', tags: ['email', 'message', 'letter'] },
+  { id: 20, name: 'phone', component: FeatherIcons.Phone, category: 'communication', tags: ['call', 'contact', 'telephone'] },
+  { id: 21, name: 'message-circle', component: FeatherIcons.MessageCircle, category: 'communication', tags: ['chat', 'bubble', 'talk'] },
+  { id: 22, name: 'send', component: FeatherIcons.Send, category: 'communication', tags: ['submit', 'arrow', 'deliver'] },
+  { id: 23, name: 'bell', component: FeatherIcons.Bell, category: 'communication', tags: ['notification', 'alert', 'ring'] },
+  { id: 160, name: 'message-square', component: FeatherIcons.MessageSquare, category: 'communication', tags: ['chat', 'bubble', 'text'] },
+  { id: 161, name: 'phone-call', component: FeatherIcons.PhoneCall, category: 'communication', tags: ['dial', 'incoming', 'contact'] },
+  { id: 162, name: 'phone-forwarded', component: FeatherIcons.PhoneForwarded, category: 'communication', tags: ['redirect', 'transfer'] },
+  { id: 163, name: 'phone-incoming', component: FeatherIcons.PhoneIncoming, category: 'communication', tags: ['receive', 'call'] },
+  { id: 164, name: 'phone-missed', component: FeatherIcons.PhoneMissed, category: 'communication', tags: ['lost', 'call'] },
+  { id: 165, name: 'phone-off', component: FeatherIcons.PhoneOff, category: 'communication', tags: ['mute', 'disconnect'] },
+  { id: 166, name: 'phone-outgoing', component: FeatherIcons.PhoneOutgoing, category: 'communication', tags: ['make', 'call'] },
+  { id: 167, name: 'voicemail', component: FeatherIcons.Voicemail, category: 'communication', tags: ['message', 'phone', 'answer'] },
 
-// Populate categories and counts
-iconData.forEach(icon => {
-  const iconCategory = icon.category;
-  if (!processedCategories.has(iconCategory)) {
-    processedCategories.add(iconCategory);
-    iconCategories.push({ id: iconCategory.toLowerCase(), name: iconCategory, count: 0 });
-  }
-  categoryCounts[iconCategory] = (categoryCounts[iconCategory] || 0) + 1;
-});
 
-// Add 'All Icons' category first
-iconCategories.unshift({ id: 'all', name: 'All Icons', count: iconData.length });
+  // Media Icons
+  { id: 24, name: 'play', component: FeatherIcons.Play, category: 'media', tags: ['start', 'video', 'audio'] },
+  { id: 25, name: 'pause', component: FeatherIcons.Pause, category: 'media', tags: ['stop', 'break', 'halt'] },
+  { id: 26, name: 'volume', component: FeatherIcons.Volume, category: 'media', tags: ['sound', 'audio', 'speaker'] },
+  { id: 27, name: 'camera', component: FeatherIcons.Camera, category: 'media', tags: ['photo', 'picture', 'snap'] },
+  { id: 28, name: 'video', component: FeatherIcons.Video, category: 'media', tags: ['camera', 'record', 'film'] },
+  { id: 29, name: 'image', component: FeatherIcons.Image, category: 'media', tags: ['photo', 'picture', 'gallery'] },
+  { id: 30, name: 'music', component: FeatherIcons.Music, category: 'media', tags: ['audio', 'song', 'note'] },
+  { id: 168, name: 'airplay', component: FeatherIcons.Airplay, category: 'media', tags: ['stream', 'display', 'apple'] },
+  { id: 169, name: 'camera-off', component: FeatherIcons.CameraOff, category: 'media', tags: ['no camera', 'private'] },
+  { id: 170, name: 'film', component: FeatherIcons.Film, category: 'media', tags: ['movie', 'cinema', 'reel'] },
+  { id: 171, name: 'mic', component: FeatherIcons.Mic, category: 'media', tags: ['microphone', 'record', 'audio'] },
+  { id: 172, name: 'mic-off', component: FeatherIcons.MicOff, category: 'media', tags: ['mute', 'no audio'] },
+  { id: 173, name: 'play-circle', component: FeatherIcons.PlayCircle, category: 'media', tags: ['start', 'video', 'button'] },
+  { id: 174, name: 'radio', component: FeatherIcons.Radio, category: 'media', tags: ['broadcast', 'frequency', 'music'] },
+  { id: 175, name: 'skip-back', component: FeatherIcons.SkipBack, category: 'media', tags: ['previous', 'track', 'rewind'] },
+  { id: 176, name: 'skip-forward', component: FeatherIcons.SkipForward, category: 'media', tags: ['next', 'track', 'fast forward'] },
+  { id: 177, name: 'stop-circle', component: FeatherIcons.StopCircle, category: 'media', tags: ['stop', 'end', 'halt'] },
+  { id: 178, name: 'video-off', component: FeatherIcons.VideoOff, category: 'media', tags: ['no video', 'private'] },
+  { id: 179, name: 'volume-1', component: FeatherIcons.Volume1, category: 'media', tags: ['sound', 'low volume'] },
+  { id: 180, name: 'volume-2', component: FeatherIcons.Volume2, category: 'media', tags: ['sound', 'medium volume'] },
+  { id: 181, name: 'volume-x', component: FeatherIcons.VolumeX, category: 'media', tags: ['mute', 'no sound'] },
 
-// Update counts for other categories
-iconCategories.forEach(category => {
-  if (category.id !== 'all') {
-    category.count = categoryCounts[category.name] || 0;
-  }
-});
 
-// Sort categories alphabetically, keeping 'All Icons' at the top
-iconCategories.sort((a, b) => {
-  if (a.id === 'all') return -1;
-  if (b.id === 'all') return 1;
-  return a.name.localeCompare(b.name);
-});
+  // Files Icons
+  { id: 31, name: 'file', component: FeatherIcons.File, category: 'files', tags: ['document', 'paper', 'text'] },
+  { id: 32, name: 'folder', component: FeatherIcons.Folder, category: 'files', tags: ['directory', 'storage', 'organize'] },
+  { id: 33, name: 'download', component: FeatherIcons.Download, category: 'files', tags: ['save', 'get', 'arrow'] },
+  { id: 34, name: 'upload', component: FeatherIcons.Upload, category: 'files', tags: ['add', 'send', 'arrow'] },
+  { id: 35, name: 'copy', component: FeatherIcons.Copy, category: 'files', tags: ['duplicate', 'clone', 'pages'] },
+  { id: 36, name: 'trash', component: FeatherIcons.Trash, category: 'files', tags: ['delete', 'remove', 'bin'] },
+  { id: 182, name: 'file-plus', component: FeatherIcons.FilePlus, category: 'files', tags: ['add file', 'new document'] },
+  { id: 183, name: 'file-minus', component: FeatherIcons.FileMinus, category: 'files', tags: ['remove file', 'delete document'] },
+  { id: 184, name: 'file-text', component: FeatherIcons.FileText, category: 'files', tags: ['document', 'text file'] },
+  { id: 185, name: 'folder-plus', component: FeatherIcons.FolderPlus, category: 'files', tags: ['add folder', 'new directory'] },
+  { id: 186, name: 'folder-minus', component: FeatherIcons.FolderMinus, category: 'files', tags: ['remove folder', 'delete directory'] },
+  { id: 187, name: 'upload-cloud', component: FeatherIcons.UploadCloud, category: 'files', tags: ['cloud upload', 'backup'] },
+  { id: 188, name: 'download-cloud', component: FeatherIcons.DownloadCloud, category: 'files', tags: ['cloud download', 'retrieve'] },
 
-console.log(`Finished processing icons. Total unique icons in iconData: ${iconData.length}.`);
-console.log(`Found ${iconCategories.length} categories.`);
+
+  // Social Icons
+  { id: 37, name: 'heart', component: FeatherIcons.Heart, category: 'social', tags: ['love', 'like', 'favorite'] },
+  { id: 38, name: 'star', component: FeatherIcons.Star, category: 'social', tags: ['rating', 'favorite', 'bookmark'] },
+  { id: 39, name: 'thumbs-up', component: FeatherIcons.ThumbsUp, category: 'social', tags: ['like', 'approve', 'good'] },
+  { id: 40, name: 'share', component: FeatherIcons.Share, category: 'social', tags: ['distribute', 'spread', 'send'] },
+  { id: 41, name: 'bookmark', component: FeatherIcons.Bookmark, category: 'social', tags: ['save', 'mark', 'remember'] },
+  { id: 189, name: 'facebook', component: FeatherIcons.Facebook, category: 'social', tags: ['social media', 'fb'] },
+  { id: 190, name: 'instagram', component: FeatherIcons.Instagram, category: 'social', tags: ['social media', 'photo'] },
+  { id: 191, name: 'twitter', component: FeatherIcons.Twitter, category: 'social', tags: ['social media', 'tweet'] },
+  { id: 192, name: 'linkedin', component: FeatherIcons.Linkedin, category: 'social', tags: ['social media', 'professional'] },
+  { id: 193, name: 'github', component: FeatherIcons.Github, category: 'social', tags: ['code', 'repo', 'version control'] },
+  { id: 194, name: 'gitlab', component: FeatherIcons.Gitlab, category: 'social', tags: ['code', 'repo', 'version control'] },
+  { id: 195, name: 'slack', component: FeatherIcons.Slack, category: 'social', tags: ['chat', 'team', 'communication'] },
+  { id: 196, name: 'send', component: FeatherIcons.Send, category: 'social', tags: ['message', 'share', 'paper plane'] },
+  { id: 197, name: 'message-circle', component: FeatherIcons.MessageCircle, category: 'social', tags: ['chat', 'comment', 'bubble'] },
+  { id: 198, name: 'users', component: FeatherIcons.Users, category: 'social', tags: ['group', 'team', 'community'] },
+  { id: 199, name: 'user-plus', component: FeatherIcons.UserPlus, category: 'social', tags: ['add user', 'new friend'] },
+  { id: 200, name: 'user-minus', component: FeatherIcons.UserMinus, category: 'social', tags: ['remove user', 'unfriend'] },
+  { id: 201, name: 'user-check', component: FeatherIcons.UserCheck, category: 'social', tags: ['verified user', 'approved'] },
+  { id: 202, name: 'user-x', component: FeatherIcons.UserX, category: 'social', tags: ['block user', 'denied'] },
+
+
+  // Commerce Icons
+  { id: 42, name: 'shopping-cart', component: FeatherIcons.ShoppingCart, category: 'commerce', tags: ['buy', 'purchase', 'shop'] },
+  { id: 43, name: 'credit-card', component: FeatherIcons.CreditCard, category: 'commerce', tags: ['payment', 'money', 'finance'] },
+  { id: 44, name: 'dollar-sign', component: FeatherIcons.DollarSign, category: 'commerce', tags: ['money', 'price', 'cost'] },
+  { id: 45, name: 'tag', component: FeatherIcons.Tag, category: 'commerce', tags: ['label', 'price', 'category'] },
+  { id: 203, name: 'shopping-bag', component: FeatherIcons.ShoppingBag, category: 'commerce', tags: ['store', 'bag', 'retail'] },
+  { id: 204, name: 'gift', component: FeatherIcons.Gift, category: 'commerce', tags: ['present', 'reward', 'bonus'] },
+  { id: 205, name: 'truck', component: FeatherIcons.Truck, category: 'commerce', tags: ['delivery', 'shipping', 'logistics'] },
+
+
+  // Weather Icons
+  { id: 46, name: 'sun', component: FeatherIcons.Sun, category: 'weather', tags: ['sunny', 'day', 'bright'] },
+  { id: 47, name: 'moon', component: FeatherIcons.Moon, category: 'weather', tags: ['night', 'dark', 'sleep'] },
+  { id: 48, name: 'cloud', component: FeatherIcons.Cloud, category: 'weather', tags: ['cloudy', 'sky', 'overcast'] },
+  { id: 49, name: 'cloud-rain', component: FeatherIcons.CloudRain, category: 'weather', tags: ['rainy', 'water', 'storm'] },
+  { id: 206, name: 'cloud-drizzle', component: FeatherIcons.CloudDrizzle, category: 'weather', tags: ['light rain', 'mist'] },
+  { id: 207, name: 'cloud-lightning', component: FeatherIcons.CloudLightning, category: 'weather', tags: ['thunderstorm', 'storm'] },
+  { id: 208, name: 'cloud-snow', component: FeatherIcons.CloudSnow, category: 'weather', tags: ['snowy', 'winter'] },
+  { id: 209, name: 'cloud-off', component: FeatherIcons.CloudOff, category: 'weather', tags: ['no cloud', 'clear sky'] },
+  { id: 210, name: 'sunrise', component: FeatherIcons.Sunrise, category: 'weather', tags: ['morning', 'dawn', 'light'] },
+  { id: 211, name: 'sunset', component: FeatherIcons.Sunset, category: 'weather', tags: ['evening', 'dusk', 'dark'] },
+  { id: 212, name: 'thermometer', component: FeatherIcons.Thermometer, category: 'weather', tags: ['temperature', 'heat', 'cold'] },
+  { id: 213, name: 'wind', component: FeatherIcons.Wind, category: 'weather', tags: ['air', 'breeze', 'weather'] },
+
+
+  // Devices Icons
+  { id: 50, name: 'smartphone', component: FeatherIcons.Smartphone, category: 'devices', tags: ['mobile', 'phone', 'cell'] },
+  { id: 51, name: 'tablet', component: FeatherIcons.Tablet, category: 'devices', tags: ['ipad', 'device', 'screen'] },
+  { id: 52, name: 'laptop', component: FeatherIcons.Laptop, category: 'devices', tags: ['computer', 'notebook', 'pc'] },
+  { id: 53, name: 'monitor', component: FeatherIcons.Monitor, category: 'devices', tags: ['screen', 'display', 'computer'] },
+  { id: 54, name: 'tv', component: FeatherIcons.Tv, category: 'devices', tags: ['television', 'screen', 'entertainment'] },
+  { id: 214, name: 'airplay', component: FeatherIcons.Airplay, category: 'devices', tags: ['stream', 'display', 'apple'] },
+  { id: 215, name: 'bluetooth', component: FeatherIcons.Bluetooth, category: 'devices', tags: ['wireless', 'connect'] },
+  { id: 216, name: 'cpu', component: FeatherIcons.Cpu, category: 'devices', tags: ['processor', 'chip', 'computer'] },
+  { id: 217, name: 'hard-drive', component: FeatherIcons.HardDrive, category: 'devices', tags: ['storage', 'server', 'disk'] },
+  { id: 218, name: 'mouse-pointer', component: FeatherIcons.MousePointer, category: 'devices', tags: ['cursor', 'input'] },
+  { id: 219, name: 'speaker', component: FeatherIcons.Speaker, category: 'devices', tags: ['audio', 'sound', 'volume'] },
+  { id: 220, name: 'wifi-off', component: FeatherIcons.WifiOff, category: 'devices', tags: ['no internet', 'disconnected'] },
+
+
+  // Development/Brand Icons
+  { id: 221, name: 'git-branch', component: FeatherIcons.GitBranch, category: 'development', tags: ['version control', 'fork', 'code'] },
+  { id: 222, name: 'git-commit', component: FeatherIcons.GitCommit, category: 'development', tags: ['version control', 'code', 'changes'] },
+  { id: 223, name: 'git-merge', component: FeatherIcons.GitMerge, category: 'development', tags: ['version control', 'combine', 'code'] },
+  { id: 224, name: 'git-pull-request', component: FeatherIcons.GitPullRequest, category: 'development', tags: ['version control', 'review', 'code'] },
+  { id: 225, name: 'figma', component: FeatherIcons.Figma, category: 'design', tags: ['design tool', 'ui', 'ux'] },
+  { id: 226, name: 'framer', component: FeatherIcons.Framer, category: 'design', tags: ['design tool', 'prototype', 'animation'] },
+  { id: 227, name: 'code', component: FeatherIcons.Code, category: 'development', tags: ['programming', 'brackets', 'coding'] },
+  { id: 228, name: 'terminal', component: FeatherIcons.Terminal, category: 'development', tags: ['command line', 'cli', 'console'] },
+  { id: 229, name: 'database', component: FeatherIcons.Database, category: 'development', tags: ['server', 'storage', 'data'] },
+  { id: 230, name: 'server', component: FeatherIcons.Server, category: 'development', tags: ['backend', 'hosting', 'cloud'] },
+  { id: 231, name: 'globe', component: FeatherIcons.Globe, category: 'development', tags: ['web', 'internet', 'world'] },
+  { id: 232, name: 'tool', component: FeatherIcons.Tool, category: 'development', tags: ['utility', 'wrench', 'fix'] },
+];
